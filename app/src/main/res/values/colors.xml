@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="default_line_color">#e6e6e6</color>
+    <color name="list_item_focus">#0a000000</color>
+    <color name="white_alpha_percent_45">#73ffffff</color>
+    <color name="title_color">#259b24</color>
 </resources>

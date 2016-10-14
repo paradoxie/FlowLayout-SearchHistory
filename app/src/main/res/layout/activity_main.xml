@@ -1,18 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin"
     tools:context="com.paradoxie.flowlayout_searchhistory.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
-</RelativeLayout>
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:hint="请输入你想搜索的内容"
+            android:maxLines="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="搜索"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.paradoxie.flowlayout_searchhistory.FlowLayout
+            android:id="@+id/flowlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.paradoxie.flowlayout_searchhistory.FlowLayout>
+
+        <LinearLayout
+            android:id="@+id/search_history_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/contentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="4dp"
+                android:text="历史搜索"
+                android:textSize="12sp"/>
+
+            <ListView
+                android:id="@+id/search_history_lv"
+                style="@style/common_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/default_line_color"
+                android:dividerHeight="0.5dp"
+                android:listSelector="@drawable/list_item_selector">
+            </ListView>
+
+            <Button
+                android:id="@+id/clear_history_btn"
+                android:layout_width="210dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_btn_selector"
+                android:text="清除历史搜索记录"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
