@@ -27,9 +27,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LayoutInflater mInflater;
     private String[] mVals = new String[]{"Java", "Android", "iOS", "Python",
             "Mac OS", "PHP", "JavaScript", "Objective-C",
-            "Groovy", "Pascal", "Ruby", "Go", "Swift"};//数据模拟，实际可从网络获取此数据
+            "Groovy", "Pascal", "Ruby", "Go", "Swift"};//数据模拟，实际应从网络获取此数据
 
-    /************ 以上为流式标签相关************/
+    /************
+     * 以上为流式标签相关
+     ************/
     public static final String EXTRA_KEY_TYPE = "extra_key_type";
     public static final String EXTRA_KEY_KEYWORD = "extra_key_keyword";
     public static final String KEY_SEARCH_HISTORY_KEYWORD = "key_search_history_keyword";
@@ -49,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initHistoryView();
     }
-
 
     private void initFlowView() {
         mInflater = LayoutInflater.from(this);
@@ -78,7 +79,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    /************ 以上为流式标签相关 ************/
+    /************
+     * 以上为流式标签相关
+     ************/
 
     private void initHistoryView() {
         input = (EditText) findViewById(R.id.et_input);
@@ -99,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() == 0) {
@@ -111,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     mSearchHistoryLl.setVisibility(View.GONE);
                 }
             }
+
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -192,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_search:
                 String keywords = input.getText().toString();
                 if (!TextUtils.isEmpty(keywords)) {
-                    Toast.makeText(MainActivity.this, keywords+"save成功", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, keywords + "save成功", Toast.LENGTH_LONG).show();
                     save();
                 } else {
                     Toast.makeText(MainActivity.this, "请输入搜索内容", Toast.LENGTH_LONG).show();
